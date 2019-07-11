@@ -5,21 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>JSX 语法进阶</title>
 </head>
 
 <body>
     <div id="app"></div>
     <script src="./common/react.js"></script>
     <script src="./common/react-dom.js"></script>
-    <script>
-        var HellowComponent = React.createClass({
-            render: function () {
-                return React.createElement('h1', null, 'hello word~~~')
-            }
-        })
+    <script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.js"></script>
+    <script type="text/babel">
+        let arr=[
+            <h1 key='key1'>hello web-react</h1>,
+            <h2 key='key2'>hello web</h2>
+        ]
         ReactDOM.render(
-            React.createElement(HellowComponent, null),
+            <div>{arr}</div>,
             document.getElementById('app')
         )
     </script>
