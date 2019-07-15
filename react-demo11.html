@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>表单bind复用</title>
+    <title>表单name复用</title>
 </head>
 
 <body>
@@ -22,9 +22,9 @@
                     checked:true
                 }
             },
-            handleChange(name,event){
+            handleChange(event){
                 let newState={}
-                newState[name]=name=="checked"?event.target.checked:event.target.value
+                newState[event.target.name]=event.target.name=="checked"?event.target.checked:event.target.value
                 this.setState(newState)
                 console.log(newState);
             },
@@ -38,13 +38,13 @@
                 return(
                     <form onSubmit={this.submitHandle}>
                         <label htmlFor="username">请输入您的姓名：</label>
-                        <input type="text" name="username" id="username" value={this.state.username} onChange={this.handleChange.bind(this,'username')} /><br />
+                        <input type="text" name="username" id="username" value={this.state.username} onChange={this.handleChange} /><br />
                         
                         <label htmlFor="checkbox">是或否：</label>
-                        <input type="checkbox" name="checked" id="checkbox" checked={this.state.checked} onChange={this.handleChange.bind(this,'checked')} /><br />
+                        <input type="checkbox" name="checked" id="checkbox" checked={this.state.checked} onChange={this.handleChange} /><br />
                         
                         <label htmlFor="gender">请选择：</label>
-                        <select name="gender" value={this.state.gender} onChange={this.handleChange.bind(this,'gender')}>
+                        <select name="gender" value={this.state.gender} onChange={this.handleChange}>
                             <option value="man">男</option>
                             <option value="woman">女</option>
                             </select><br />
